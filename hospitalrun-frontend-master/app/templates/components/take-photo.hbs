@@ -1,0 +1,49 @@
+{{#if canCaptureVideo}}
+  <div class="form-group">
+    <label class="control-label" for="photo-source">{{sourceChooserLabel}}</label>
+    {{select-list
+      action=(action 'photoSourceChange')
+      class='form-control'
+      content=photoSources
+      id='photo-source'
+      optionLabelPath="label"
+      optionValuePath="value"
+      value=photoSource
+    }}
+  </div>
+  {{#if showCameraSelect}}
+    <div class="form-group">
+      <label class="control-label" for="camera">{{t 'components.takePhoto.camera'}}</label>
+      {{select-list
+          action=(action 'cameraChange')
+          class='form-control'
+          content=videoSources
+          id='camera'
+          label=(t 'components.takePhoto.camera')
+          optionLabelPath="label"
+          optionValuePath="id"
+          value=selectedCamera
+      }}
+    </div>
+  {{/if}}
+  <div class="camera panel panel-success">
+    <div class="panel-body">
+      <div class="col-sm-4">
+        <h2>{{t 'components.takePhoto.preview'}}</h2>
+        <video></video>
+      </div>
+      <div class="col-sm-2">
+      </div>
+      <div class="col-sm-4">
+        <h2>{{t 'components.takePhoto.photo'}}</h2>
+        <canvas id="canvas"></canvas>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <button class="btn btn-default neutral" {{action 'takePhoto'}}>{{t 'components.takePhoto.takePhoto'}}</button>
+    </div>
+  </div>
+{{/if}}
+{{#if showFileUpload}}
+  {{image-upload label=(t 'components.takePhoto.uploadFile') property="fileName" selectedFile=photoFile isImage=isImage}}
+{{/if}}

@@ -1,0 +1,17 @@
+body {
+  background: $blue_lightest;
+
+  &.ember-application {/* stylelint-disable-line selector-no-qualifying-type */
+    padding-left: 275px; // to accomodate for .sidebar-nav
+  }
+}
+
+.clickable { cursor: pointer; }
+
+.modal-dialog { color: $navy; }
+
+.not-editable {
+  opacity: .5;
+  background-color: rgba($gray_light,.5);
+  cursor: default;
+}

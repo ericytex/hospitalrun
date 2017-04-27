@@ -1,0 +1,11 @@
+{{#modal-dialog
+    hideCancelButton=hideCancelButton
+    isUpdateDisabled=isUpdateDisabled
+    title=title
+    updateButtonAction=updateButtonAction
+    updateButtonText=updateButtonText }}
+  {{#em-form model=model submitButton=false }}
+    {{inventory-typeahead property="itemName" label=(t 'procedures.labels.medicationUsed') content=medicationList selection=selectedInventoryItem class="medication-used"}}
+    {{number-input label=(t 'labels.quantity') property="quantity" class="required medication-quantity"}}
+  {{/em-form}}
+{{/modal-dialog}}
